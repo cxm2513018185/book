@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书管理系统</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap.css.map">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-primary clearMargin">
+            <div class="panel-heading">
+                <h3 class="panel-title title">图书管理系统<a href="/toAddBook" class="btn">添加图书</a></h3>
+            </div>
+        </div>
+        <div class="content">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>作者</th>
+                        <th>分类</th>
+                        <th>描述</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list}}
+                    <tr>
+                        <td>{{$value.id}}</td>
+                        <td>{{$value.name}}</td>
+                        <td>{{$value.author}}</td>
+                        <td>{{$value.category}}</td>
+                        <td>{{$value.description}}</td>
+                        <td>
+                            <a href="/toEditBook?id={{$value.id}}" class="btn btn-success">编辑</a>
+                            <a href="/deleteBook?id={{$value.id}}" class="btn btn-danger">删除</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
